@@ -54,6 +54,34 @@ pyenv install 3.6.0
 pyenv local 3.6.0
 ```
 
+### ドキュメント環境構築
+```bash
+cd /vagrant
+curl -s api.sdkman.io | bash
+source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+sdk list maven
+sdk use maven 3.5.4
+sdk list java
+sdk use java 8.0.181-zulu
+sdk list gradle
+sdk use gradle 4.9
+```
+ドキュメントのセットアップ
+```
+cd /vagrant/
+touch build.gradle
+```
+`build.gradle`を作成して以下のコマンドを実行
+```
+gradle build
+```
+ドキュメントの生成
+```bash
+gradle asciidoctor
+gradle livereload
+```
+[http://192.168.33.10:35729/](http://192.168.33.10:35729/)に接続して確認する
+
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -106,3 +134,4 @@ python -m pytest --cov tests/
 + [Simple Python Version Management: pyenv](https://github.com/pyenv/pyenv)
 + [pyenv installer](https://github.com/pyenv/pyenv-installer)
 + [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
++ [図入りのAsciiDoc記述からPDFを生成する環境をGradleで簡単に用意する](https://qiita.com/tokumoto/items/d37ab3de5bdbee307769) 

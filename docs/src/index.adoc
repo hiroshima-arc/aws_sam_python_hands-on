@@ -1,0 +1,25 @@
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Node.js)
+
+== 目的
+開発ドキュメントの管理
+
+== 前提
+|===
+|ソフトウェア |バージョン |備考
+|node       |8.10.0     |
+|===
+
+== 構成
+* <<anchor-1,HelloWorld>>
+
+== 詳細
+=== link:./hello_world.html[HelloWorld][[anchor-1]]
+
+== 参照
+* Asciidoctor[http://asciidoctor.org/]
+* PlantUML[http://www.plantuml.com]
+* draw.io[https://about.draw.io/]
