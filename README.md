@@ -89,6 +89,13 @@ cd /vagrant/sam-app
 pip install pycodestyle
 ```
 
+### コードカバレッジのセットアップ
+```bash
+cd /vagrant/sam-app
+pip install pytest-cov
+python -m pytest --cov tests/
+```
+
 
 **[⬆ back to top](#構成)**
 
