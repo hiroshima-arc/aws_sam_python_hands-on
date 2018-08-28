@@ -63,6 +63,13 @@ pyenv local 3.6.0
 **[⬆ back to top](#構成)**
 
 ## 開発
+### アプリケーションの作成
+```bash
+cd /vagrant
+sam init --runtime python
+cd sam-app
+```
+
 **[⬆ back to top](#構成)**
 
 # 参照 #
