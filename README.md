@@ -70,6 +70,20 @@ sam init --runtime python
 cd sam-app
 ```
 
+### ローカルでテストする
+```bash
+cd /vagrant/sam-app
+pip install pytest requests
+python -m pytest tests/ -v
+pip install -r requirements.txt -t hello_world/build/
+cp hello_world/*.py hello_world/build/
+sam local generate-event api > event_file.json
+sam local invoke HelloWorldFunction --event event_file.json
+sam local start-api --host 0.0.0.0
+```
+[http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
+
+
 **[⬆ back to top](#構成)**
 
 # 参照 #

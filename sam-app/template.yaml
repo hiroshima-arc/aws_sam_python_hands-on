@@ -18,7 +18,7 @@ Resources:
         Properties:
             CodeUri: hello_world/build/
             Handler: app.lambda_handler
-            Runtime: python2.7
+            Runtime: python3.6
             Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
                 Variables:
                     PARAM1: VALUE
