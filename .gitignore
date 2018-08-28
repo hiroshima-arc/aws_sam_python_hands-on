@@ -107,3 +107,4 @@ venv.bak/
 .vagrant
 .gradle
 .asciidoctor
+packaged.yaml
