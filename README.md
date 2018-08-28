@@ -6,7 +6,7 @@ AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオ�
 # 前提 #
 | ソフトウェア   | バージョン   | 備考        |
 |:---------------|:-------------|:------------|
-| python         |3.7.0    |             |
+| python         |3.6.0    |             |
 | sam            |0.3.0  |             |
 | docker         |17.06.2  |             |
 | docker-compose |1.21.0  |             |
@@ -28,6 +28,32 @@ vagrant up
 vagrant ssh
 ```
 
+### 開発パッケージのインストール
++ aws-sam-cliのインストール
++ pyenvのインストール
++ Pythonのインストール
+
+```bash
+pip install --user aws-sam-cli
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash 
+```
+
+`~/.bashrc`に以下を追加するして`source ~/.bashrc`
+```
+export PATH="/home/vagrant/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+利用するPythonのバージョンをインストールする
+```
+cd /vagrant
+sudo yum install gcc gcc-c++ make git openssl-devel bzip2-devel zlib-devel readline-devel sqlite-devel -y
+pyenv install -l
+pyenv install 3.6.0
+pyenv local 3.6.0
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -41,3 +67,7 @@ vagrant ssh
 
 # 参照 #
 + [Amazon Linux2にDockerをインストールする](https://qiita.com/reoring/items/0d1f556064d363f0ccb8) 
++ [Pythonのパッケージ管理システムpipのインストールと使い方](https://uxmilk.jp/12691)
++ [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
++ [Simple Python Version Management: pyenv](https://github.com/pyenv/pyenv)
++ [pyenv installer](https://github.com/pyenv/pyenv-installer)
