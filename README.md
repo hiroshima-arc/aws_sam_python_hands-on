@@ -82,6 +82,12 @@ gradle livereload
 ```
 [http://192.168.33.10:35729/](http://192.168.33.10:35729/)に接続して確認する
 
+### パイプラインの構築
+```
+cd /vagrant/ops/code_pipline
+./create_stack.sh 
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
