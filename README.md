@@ -83,6 +83,12 @@ sam local start-api --host 0.0.0.0
 ```
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
+### コードチェッカーのセットアップ
+```bash
+cd /vagrant/sam-app
+pip install pycodestyle
+```
+
 
 **[⬆ back to top](#構成)**
 
@@ -92,3 +98,4 @@ sam local start-api --host 0.0.0.0
 + [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
 + [Simple Python Version Management: pyenv](https://github.com/pyenv/pyenv)
 + [pyenv installer](https://github.com/pyenv/pyenv-installer)
++ [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
