@@ -1,0 +1,30 @@
+[
+  {
+    "ParameterKey": "ProjectName",
+    "ParameterValue": "python-hands-on-production"
+  },
+  {
+    "ParameterKey": "ProjectParameterOverrides",
+    "ParameterValue": "{}"
+  },
+  {
+    "ParameterKey": "GitHubOAuthToken",
+    "ParameterValue": "8dfb716cb34881b6574f72196769304f2b79cad9"
+  },
+  {
+    "ParameterKey": "GitHubRepoOwner",
+    "ParameterValue": "k2works"
+  },
+  {
+    "ParameterKey": "GitHubRepo",
+    "ParameterValue": "aws_sam_python_hands-on"
+  },
+  {
+    "ParameterKey": "GitHubBranch",
+    "ParameterValue": "master"
+  },
+  {
+    "ParameterKey": "GitHubBranchDest",
+    "ParameterValue": ""
+  }
+]
