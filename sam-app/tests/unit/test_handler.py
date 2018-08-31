@@ -93,4 +93,4 @@ def test_lambda_handler(apigw_event):
         assert key in ret['body']
 
     data = json.loads(ret['body'])
-    assert data['message'] == 'hello world'
+    assert data['message'] == 'Hello Python lambda world'
