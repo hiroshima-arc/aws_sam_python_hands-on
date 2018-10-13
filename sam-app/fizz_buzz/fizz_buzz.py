@@ -1,5 +1,10 @@
 class FizzBuzz:
     @staticmethod
     def generate(number):
-        return 'Fizz'
+        value = number
+
+        if value % 3 == 0:
+            value = 'Fizz'
+
+        return value
     
