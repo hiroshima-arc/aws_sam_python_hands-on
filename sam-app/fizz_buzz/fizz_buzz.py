@@ -11,4 +11,7 @@ class FizzBuzz:
             value = 'Buzz'
 
         return value
-    
+
+    @staticmethod
+    def iterate(param):
+        pass

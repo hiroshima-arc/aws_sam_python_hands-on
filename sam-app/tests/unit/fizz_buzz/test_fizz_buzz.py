@@ -29,3 +29,6 @@ class TestFizzBuzz(object):
 
     def test_101ならば101を返す(self):
         assert FizzBuzz.generate(101) == 101
+
+    def test_5回繰り返し実行ならば配列を返す(self):
+        assert FizzBuzz.iterate(5) == [1, 2, 'Fizz', 4, 'Buzz']
