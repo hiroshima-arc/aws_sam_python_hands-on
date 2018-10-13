@@ -1,3 +1,5 @@
 class FizzBuzz:
-    pass
+    @staticmethod
+    def generate(number):
+        return 'Fizz'
     

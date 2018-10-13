@@ -533,7 +533,7 @@ from fizz_buzz.fizz_buzz import FizzBuzz
 
 class TestFizzBuzz(object):
     def test_3ならばFizzを返す(self):
-        assert 3 == 'Fizz'</code></pre>
+        assert FizzBuzz.generate(3) == 'Fizz'</code></pre>
 </div>
 </div>
 </div>
@@ -542,7 +542,9 @@ class TestFizzBuzz(object):
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">class FizzBuzz:
-    pass</code></pre>
+    @staticmethod
+    def generate(number):
+        return 'Fizz'</code></pre>
 </div>
 </div>
 </div>
@@ -566,7 +568,7 @@ class TestFizzBuzz(object):
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-13 10:12:52 JST
+Last updated 2018-10-13 10:23:20 JST
 </div>
 </div>
 </body>
