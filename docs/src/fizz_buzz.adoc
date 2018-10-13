@@ -12,7 +12,7 @@
 
 == 設計
 === TODOリスト
-* [ ] 「Fizz」を出力できるようにする
+* [x] 「Fizz」を出力できるようにする
 * [ ] 「Buzz」を出力できるようにする
 * [ ] 「FizzBuzz」を出力できるようにする
 * [ ] 繰り返し実行できるようにする
@@ -32,6 +32,7 @@ rectangle FizzBuzz {
 [plantuml]
 ----
 class FizzBuzz {
++{static} generate()
 }
 ----
 
