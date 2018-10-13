@@ -1,9 +1,9 @@
 {
     "body": "{ \"test\": \"body\"}", 
-    "httpMethod": "POST", 
+    "httpMethod": "GET",
     "resource": "/{proxy+}", 
     "queryStringParameters": {
-        "foo": "bar"
+        "number": "3"
     }, 
     "requestContext": {
         "httpMethod": "POST", 
