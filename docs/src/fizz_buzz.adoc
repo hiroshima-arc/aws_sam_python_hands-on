@@ -56,6 +56,7 @@ include::../../sam-app/tests/unit/fizz_buzz/test_fizz_buzz.py[]
 [source,python]
 ----
 include::../../sam-app/fizz_buzz/fizz_buzz.py[]
+
 ----
 
 == 参照

@@ -34,4 +34,4 @@ class TestFizzBuzz(object):
         assert FizzBuzz.iterate(5) == [1, 2, 'Fizz', 4, 'Buzz']
 
     def test_10回繰り返し実行ならば配列を返す(self):
-        assert FizzBuzz.iterate(10) == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 9, 'Buzz']
+        assert FizzBuzz.iterate(10) == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz']
