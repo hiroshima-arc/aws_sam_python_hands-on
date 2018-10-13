@@ -2,7 +2,7 @@
 :toclevels: 5
 :sectnums:
 
-= AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Node.js)
+= AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Python)
 
 == 目的
 開発ドキュメントの管理
