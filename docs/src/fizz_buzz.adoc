@@ -16,7 +16,7 @@
 * [x] 「Fizz」を出力できるようにする
 * [x] 「Buzz」を出力できるようにする
 * [x] 「FizzBuzz」を出力できるようにする
-* [ ] 繰り返し実行できるようにする
+* [x] 繰り返し実行できるようにする
 
 === ユースケース図
 [plantuml]
@@ -26,6 +26,7 @@ skinparam packageStyle rectangle
 actor User
 rectangle FizzBuzz {
   User -- (値を出力する)
+  User -- (繰り返し実行する)
 }
 ----
 
@@ -34,6 +35,7 @@ rectangle FizzBuzz {
 ----
 class FizzBuzz {
 +{static} generate()
++{static} iterate()
 }
 ----
 
@@ -41,8 +43,14 @@ class FizzBuzz {
 [plantuml]
 ----
 actor User
- User -> FizzBuzz
-User <- FizzBuzz
+
+User -> FizzBuzz: iterate
+loop for each count
+      activate FizzBuzz
+      FizzBuzz -> FizzBuzz: generate
+            User <- FizzBuzz
+      deactivate FizzBuzz
+end
 ----
 
 == 実装
