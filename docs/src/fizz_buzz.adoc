@@ -36,6 +36,12 @@ class FizzBuzz {
 ----
 
 === シーケンス図
+[plantuml]
+----
+actor User
+ User -> FizzBuzz
+User <- FizzBuzz
+----
 
 == 実装
 
