@@ -13,5 +13,10 @@ class FizzBuzz:
         return value
 
     @staticmethod
-    def iterate(param):
-        return [1, 2, 'Fizz', 4, 'Buzz']
+    def iterate(count):
+        array = []
+
+        for n in range(count):
+            array.append(FizzBuzz.generate(n + 1))
+
+        return array

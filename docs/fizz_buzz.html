@@ -589,8 +589,13 @@ class TestFizzBuzz(object):
         return value
 
     @staticmethod
-    def iterate(param):
-        return [1, 2, 'Fizz', 4, 'Buzz']</code></pre>
+    def iterate(count):
+        array = []
+
+        for n in range(count):
+            array.append(FizzBuzz.generate(n + 1))
+
+        return array</code></pre>
 </div>
 </div>
 </div>
@@ -614,7 +619,7 @@ class TestFizzBuzz(object):
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-13 11:51:20 JST
+Last updated 2018-10-13 11:55:49 JST
 </div>
 </div>
 </body>
