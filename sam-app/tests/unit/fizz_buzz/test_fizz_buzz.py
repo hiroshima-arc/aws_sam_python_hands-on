@@ -9,9 +9,6 @@ class TestFizzBuzz(object):
     def test_6ならばFizzを返す(self):
         assert FizzBuzz.generate(6) == 'Fizz'
 
-    def test_30ならばFizzを返す(self):
-        assert FizzBuzz.generate(30) == 'Fizz'
-
     def test_5ならばBuzzを返す(self):
         assert FizzBuzz.generate(5) == 'Buzz'
 
@@ -23,3 +20,6 @@ class TestFizzBuzz(object):
 
     def test_15ならばFizzBuzzを返す(self):
         assert FizzBuzz.generate(15) == 'FizzBuzz'
+
+    def test_30ならばFizzBuzzを返す(self):
+        assert FizzBuzz.generate(30) == 'FizzBuzz'
