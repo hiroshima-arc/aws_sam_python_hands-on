@@ -59,6 +59,10 @@ end
 ----
 include::../../sam-app/tests/unit/fizz_buzz/test_fizz_buzz.py[]
 ----
+[source,python]
+----
+include::../../sam-app/tests/unit/fizz_buzz/test_handler.py[]
+----
 
 === プロダクトコード
 [source,python]

@@ -8,7 +8,7 @@ def apigw_event():
     """ Generates API GW Event"""
 
     return {
-        "body": "{ \"test\": \"body\"}",
+        "body": "{ \"count\": \"5\"}",
         "resource": "/{proxy+}",
         "requestContext": {
             "resourceId": "123456",
@@ -33,7 +33,7 @@ def apigw_event():
             "stage": "prod"
         },
         "queryStringParameters": {
-            "foo": "bar"
+            "number": "3"
         },
         "headers": {
             "Via":
@@ -84,13 +84,23 @@ def apigw_event():
     }
 
 
-def test_lambda_handler(apigw_event):
-
-    ret = app.lambda_handler(apigw_event, "")
+def test_3ならばFizzを返す(apigw_event):
+    ret = app.generate(apigw_event, "")
     assert ret['statusCode'] == 200
 
-    for key in ('message', 'location'):
+    for key in 'value':
         assert key in ret['body']
 
     data = json.loads(ret['body'])
-    assert data['message'] == 'Hello Python lambda world'
+    assert data['value'] == 'Fizz'
+
+
+def test_繰り返しならば配列を返す(apigw_event):
+    ret = app.iterate(apigw_event, "")
+    assert ret['statusCode'] == 200
+
+    for key in 'values':
+        assert key in ret['body']
+
+    data = json.loads(ret['body'])
+    assert data['values'] == [1, 2, 'Fizz', 4, 'Buzz']
