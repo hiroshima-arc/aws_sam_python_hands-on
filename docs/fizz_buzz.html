@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Node.js)</title>
+<title>Fizz Buzz</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -427,86 +427,75 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Node.js)</h1>
+<h1>Fizz Buzz</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_目的">1. 目的</a></li>
-<li><a href="#_前提">2. 前提</a></li>
-<li><a href="#_構成">3. 構成</a></li>
-<li><a href="#_詳細">4. 詳細</a>
+<li><a href="#_仕様">1. 仕様</a></li>
+<li><a href="#_設計">2. 設計</a>
 <ul class="sectlevel2">
-<li><a href="#_a_href_hello_world_html_helloworld_a_a_id_anchor_1_a">4.1. <a href="./hello_world.html">HelloWorld</a><a id="anchor-1"></a></a></li>
-<li><a href="#_a_href_fizz_buzz_html_fizzbuzz_a_a_id_anchor_2_a">4.2. <a href="./fizz_buzz.html">FizzBuzz</a><a id="anchor-2"></a></a></li>
+<li><a href="#_todoリスト">2.1. TODOリスト</a></li>
+<li><a href="#_ユースケース図">2.2. ユースケース図</a></li>
+<li><a href="#_クラス図">2.3. クラス図</a></li>
+<li><a href="#_シーケンス図">2.4. シーケンス図</a></li>
 </ul>
 </li>
-<li><a href="#_参照">5. 参照</a></li>
+<li><a href="#_実装">3. 実装</a></li>
+<li><a href="#_参照">4. 参照</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_目的">1. 目的</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>開発ドキュメントの管理</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_前提">2. 前提</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ソフトウェア</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">備考</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">python</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.6.0</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_構成">3. 構成</h2>
+<h2 id="_仕様">1. 仕様</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#anchor-1">HelloWorld</a></p>
+<p>３で割り切れる場合は「Fizz」を出力する。</p>
 </li>
 <li>
-<p><a href="#anchor-2">FizzBuzz</a></p>
+<p>５で割り切れる場合は「Buzz」を出力する。</p>
+</li>
+<li>
+<p>両者で割り切れる場合は「FizzBuzz」を出力する。</p>
+</li>
+<li>
+<p>指定された回数だけ繰り返し実行する。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_詳細">4. 詳細</h2>
+<h2 id="_設計">2. 設計</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_a_href_hello_world_html_helloworld_a_a_id_anchor_1_a">4.1. <a href="./hello_world.html">HelloWorld</a><a id="anchor-1"></a></h3>
+<h3 id="_todoリスト">2.1. TODOリスト</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_a_href_fizz_buzz_html_fizzbuzz_a_a_id_anchor_2_a">4.2. <a href="./fizz_buzz.html">FizzBuzz</a><a id="anchor-2"></a></h3>
+<h3 id="_ユースケース図">2.2. ユースケース図</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_クラス図">2.3. クラス図</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_シーケンス図">2.4. シーケンス図</h3>
 
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_参照">5. 参照</h2>
+<h2 id="_実装">3. 実装</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参照">4. 参照</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -516,9 +505,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>PlantUML[<a href="http://www.plantuml.com" class="bare">http://www.plantuml.com</a>]</p>
 </li>
-<li>
-<p>draw.io[<a href="https://about.draw.io/" class="bare">https://about.draw.io/</a>]</p>
-</li>
 </ul>
 </div>
 </div>
@@ -526,7 +512,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-13 09:07:09 JST
+Last updated 2018-10-13 09:05:23 JST
 </div>
 </div>
 </body>

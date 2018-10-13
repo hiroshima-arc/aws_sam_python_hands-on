@@ -520,9 +520,13 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            'message': 'hello world',
+            'message': 'Hello Python lambda world',
             'location': ip.text.replace('\n', ''),
-        })
+        }),
+        "headers": {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+        }
     }</code></pre>
 </div>
 </div>
@@ -623,7 +627,7 @@ def test_lambda_handler(apigw_event):
         assert key in ret['body']
 
     data = json.loads(ret['body'])
-    assert data['message'] == 'hello world'</code></pre>
+    assert data['message'] == 'Hello Python lambda world'</code></pre>
 </div>
 </div>
 </div>
@@ -643,7 +647,7 @@ def test_lambda_handler(apigw_event):
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-28 07:10:16 UTC
+Last updated 2018-08-28 17:02:51 JST
 </div>
 </div>
 </body>
