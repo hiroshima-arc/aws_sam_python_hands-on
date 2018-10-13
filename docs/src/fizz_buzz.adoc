@@ -1,0 +1,79 @@
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Fizz Buzz
+
+== 仕様
+* ３で割り切れる場合は「Fizz」を出力する。
+* ５で割り切れる場合は「Buzz」を出力する。
+* 両者で割り切れる場合は「FizzBuzz」を出力する。
+* 上記以外の場合は与えられた数字を出力する。
+* 指定された回数だけ繰り返し実行する。
+
+== 設計
+=== TODOリスト
+* [x] 「Fizz」を出力できるようにする
+* [x] 「Buzz」を出力できるようにする
+* [x] 「FizzBuzz」を出力できるようにする
+* [x] 繰り返し実行できるようにする
+
+=== ユースケース図
+[plantuml]
+----
+left to right direction
+skinparam packageStyle rectangle
+actor User
+rectangle FizzBuzz {
+  User -- (値を出力する)
+  User -- (繰り返し実行する)
+}
+----
+
+=== クラス図
+[plantuml]
+----
+class FizzBuzz {
++{static} generate()
++{static} iterate()
+}
+----
+
+=== シーケンス図
+[plantuml]
+----
+actor User
+
+User -> FizzBuzz: iterate
+loop for each count
+      activate FizzBuzz
+      FizzBuzz -> FizzBuzz: generate
+            User <- FizzBuzz
+      deactivate FizzBuzz
+end
+----
+
+== 実装
+=== テストコード
+[source,python]
+----
+include::../../sam-app/tests/unit/fizz_buzz/test_fizz_buzz.py[]
+----
+[source,python]
+----
+include::../../sam-app/tests/unit/fizz_buzz/test_handler.py[]
+----
+
+=== プロダクトコード
+[source,python]
+----
+include::../../sam-app/fizz_buzz/fizz_buzz.py[]
+----
+[source,python]
+----
+include::../../sam-app/fizz_buzz/app.py[]
+----
+
+== 参照
+* Asciidoctor[http://asciidoctor.org/]
+* PlantUML[http://www.plantuml.com]

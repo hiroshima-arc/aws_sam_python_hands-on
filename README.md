@@ -166,9 +166,12 @@ git secrets --scan -r
 ```
 許可ルールを追加する
 ```bash
-git config --add secrets.allowed sam-app/event_file.json
-git config --add secrets.allowed sam-app/tests/unit/test_handler.py
+git config --add secrets.allowed sam-app/tests/hello_world/event_file.json
+git config --add secrets.allowed sam-app/tests/unit/hello_world/test_handler.py
 git config --add secrets.allowed docs/hello_world.html
+git config --add secrets.allowed sam-app/tests/fizz_buzz/generate_event_file.json
+git config --add secrets.allowed sam-app/tests/fizz_buzz/iterate_event_file.json
+git config --add secrets.allowed docs/fizz_buzz.html
 ```
 
 **[⬆ back to top](#構成)**
@@ -182,14 +185,28 @@ cd sam-app
 ```
 
 ### ローカルでテストする
+#### HelloWorld
 ```bash
 cd /vagrant/sam-app
 pip install pytest requests
 python -m pytest tests/ -v
+rm -rf hello_world/build
 pip install -r requirements.txt -t hello_world/build/
 cp hello_world/*.py hello_world/build/
 sam local generate-event api > event_file.json
-sam local invoke HelloWorldFunction --event event_file.json
+sam local invoke HelloWorldFunction --event tests/hello_world/event_file.json
+sam local start-api --host 0.0.0.0
+```
+
+#### FizzBuzz
+```bash
+cd /vagrant/sam-app
+python -m pytest tests/ -v
+rm -rf fizz_buzz/build
+pip install -r requirements.txt -t fizz_buzz/build/
+cp fizz_buzz/*.py fizz_buzz/build/
+sam local invoke FizzBuzzGenerateFunction --event tests/fizz_buzz/generate_event_file.json
+sam local invoke FizzBuzzIterateFunction --event tests/fizz_buzz/iterate_event_file.json
 sam local start-api --host 0.0.0.0
 ```
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
@@ -198,6 +215,7 @@ sam local start-api --host 0.0.0.0
 ```bash
 cd /vagrant/sam-app
 pip install pycodestyle
+python -m pycodestyle sam-app/fizz_buzz/*.py
 ```
 
 ### コードカバレッジのセットアップ

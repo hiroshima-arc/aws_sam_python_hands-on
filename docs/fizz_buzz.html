@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>Hello World</title>
+<title>Fizz Buzz</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -427,7 +427,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Hello World</h1>
+<h1>Fizz Buzz</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -440,7 +440,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_シーケンス図">2.4. シーケンス図</a></li>
 </ul>
 </li>
-<li><a href="#_実装">3. 実装</a></li>
+<li><a href="#_実装">3. 実装</a>
+<ul class="sectlevel2">
+<li><a href="#_テストコード">3.1. テストコード</a></li>
+<li><a href="#_プロダクトコード">3.2. プロダクトコード</a></li>
+</ul>
+</li>
 <li><a href="#_参照">4. 参照</a></li>
 </ul>
 </div>
@@ -449,7 +454,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_仕様">1. 仕様</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>３で割り切れる場合は「Fizz」を出力する。</p>
+</li>
+<li>
+<p>５で割り切れる場合は「Buzz」を出力する。</p>
+</li>
+<li>
+<p>両者で割り切れる場合は「FizzBuzz」を出力する。</p>
+</li>
+<li>
+<p>上記以外の場合は与えられた数字を出力する。</p>
+</li>
+<li>
+<p>指定された回数だけ繰り返し実行する。</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -460,10 +483,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p>&#10063; TODO</p>
+<p>&#10003; 「Fizz」を出力できるようにする</p>
 </li>
 <li>
-<p>&#10003; <span class="line-through">TODO DONE</span></p>
+<p>&#10003; 「Buzz」を出力できるようにする</p>
+</li>
+<li>
+<p>&#10003; 「FizzBuzz」を出力できるようにする</p>
+</li>
+<li>
+<p>&#10003; 繰り返し実行できるようにする</p>
 </li>
 </ul>
 </div>
@@ -472,7 +501,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_ユースケース図">2.2. ユースケース図</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/diag-0cedeb4ec34c9f83ec0b9d9a01738a0a.png" alt="diag 0cedeb4ec34c9f83ec0b9d9a01738a0a" width="323" height="290">
+<img src="./images/diag-4bc5229ee1f42380d204291f6a2bc572.png" alt="diag 4bc5229ee1f42380d204291f6a2bc572" width="260" height="160">
 </div>
 </div>
 </div>
@@ -480,7 +509,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_クラス図">2.3. クラス図</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/diag-52188ed3e6021890c7143b0584c16e9c.png" alt="diag 52188ed3e6021890c7143b0584c16e9c" width="375" height="194">
+<img src="./images/diag-6bc15dc2d9a8beb57b2469954d29e874.png" alt="diag 6bc15dc2d9a8beb57b2469954d29e874" width="99" height="91">
 </div>
 </div>
 </div>
@@ -488,7 +517,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_シーケンス図">2.4. シーケンス図</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/diag-c9982f70efc55384b0a833d5587c23b4.png" alt="diag c9982f70efc55384b0a833d5587c23b4" width="369" height="280">
+<img src="./images/diag-e2bdd93f913bf7a0a2eaed7cfb34a788.png" alt="diag e2bdd93f913bf7a0a2eaed7cfb34a788" width="206" height="309">
 </div>
 </div>
 </div>
@@ -497,42 +526,264 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_実装">3. 実装</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_テストコード">3.1. テストコード</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import pytest
+from fizz_buzz.fizz_buzz import FizzBuzz
+
+
+class TestFizzBuzz(object):
+    def test_3ならばFizzを返す(self):
+        assert FizzBuzz.generate(3) == 'Fizz'
+
+    def test_6ならばFizzを返す(self):
+        assert FizzBuzz.generate(6) == 'Fizz'
+
+    def test_5ならばBuzzを返す(self):
+        assert FizzBuzz.generate(5) == 'Buzz'
+
+    def test_10ならばBuzzを返す(self):
+        assert FizzBuzz.generate(10) == 'Buzz'
+
+    def test_50ならばBuzzを返す(self):
+        assert FizzBuzz.generate(50) == 'Buzz'
+
+    def test_15ならばFizzBuzzを返す(self):
+        assert FizzBuzz.generate(15) == 'FizzBuzz'
+
+    def test_30ならばFizzBuzzを返す(self):
+        assert FizzBuzz.generate(30) == 'FizzBuzz'
+
+    def test_1ならば1を返す(self):
+        assert FizzBuzz.generate(1) == 1
+
+    def test_101ならば101を返す(self):
+        assert FizzBuzz.generate(101) == 101
+
+    def test_5回繰り返し実行ならば配列を返す(self):
+        assert FizzBuzz.iterate(5) == [1, 2, 'Fizz', 4, 'Buzz']
+
+    def test_10回繰り返し実行ならば配列を返す(self):
+        assert FizzBuzz.iterate(10) == [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz']</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import json
+import pytest
+from fizz_buzz import app
+
+
+@pytest.fixture()
+def apigw_event():
+    """ Generates API GW Event"""
+
+    return {
+        "body": "{ \"count\": \"5\"}",
+        "resource": "/{proxy+}",
+        "requestContext": {
+            "resourceId": "123456",
+            "apiId": "1234567890",
+            "resourcePath": "/{proxy+}",
+            "httpMethod": "POST",
+            "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+            "accountId": "123456789012",
+            "identity": {
+                "apiKey": "",
+                "userArn": "",
+                "cognitoAuthenticationType": "",
+                "caller": "",
+                "userAgent": "Custom User Agent String",
+                "user": "",
+                "cognitoIdentityPoolId": "",
+                "cognitoIdentityId": "",
+                "cognitoAuthenticationProvider": "",
+                "sourceIp": "127.0.0.1",
+                "accountId": ""
+            },
+            "stage": "prod"
+        },
+        "queryStringParameters": {
+            "number": "3"
+        },
+        "headers": {
+            "Via":
+            "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+            "Accept-Language":
+            "en-US,en;q=0.8",
+            "CloudFront-Is-Desktop-Viewer":
+            "true",
+            "CloudFront-Is-SmartTV-Viewer":
+            "false",
+            "CloudFront-Is-Mobile-Viewer":
+            "false",
+            "X-Forwarded-For":
+            "127.0.0.1, 127.0.0.2",
+            "CloudFront-Viewer-Country":
+            "US",
+            "Accept":
+            "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Upgrade-Insecure-Requests":
+            "1",
+            "X-Forwarded-Port":
+            "443",
+            "Host":
+            "1234567890.execute-api.us-east-1.amazonaws.com",
+            "X-Forwarded-Proto":
+            "https",
+            "X-Amz-Cf-Id":
+            "aaaaaaaaaae3VYQb9jd-nvCd-de396Uhbp027Y2JvkCPNLmGJHqlaA==",
+            "CloudFront-Is-Tablet-Viewer":
+            "false",
+            "Cache-Control":
+            "max-age=0",
+            "User-Agent":
+            "Custom User Agent String",
+            "CloudFront-Forwarded-Proto":
+            "https",
+            "Accept-Encoding":
+            "gzip, deflate, sdch"
+        },
+        "pathParameters": {
+            "proxy": "/examplepath"
+        },
+        "httpMethod": "POST",
+        "stageVariables": {
+            "baz": "qux"
+        },
+        "path": "/examplepath"
+    }
+
+
+def test_3ならばFizzを返す(apigw_event):
+    ret = app.generate(apigw_event, "")
+    assert ret['statusCode'] == 200
+
+    for key in 'value':
+        assert key in ret['body']
+
+    data = json.loads(ret['body'])
+    assert data['value'] == 'Fizz'
+
+
+def test_繰り返しならば配列を返す(apigw_event):
+    ret = app.iterate(apigw_event, "")
+    assert ret['statusCode'] == 200
+
+    for key in 'values':
+        assert key in ret['body']
+
+    data = json.loads(ret['body'])
+    assert data['values'] == [1, 2, 'Fizz', 4, 'Buzz']</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_プロダクトコード">3.2. プロダクトコード</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">class FizzBuzz:
+    @staticmethod
+    def generate(number):
+        value = number
+
+        if value % 3 == 0 and value % 5 == 0:
+            value = 'FizzBuzz'
+        elif value % 3 == 0:
+            value = 'Fizz'
+        elif value % 5 == 0:
+            value = 'Buzz'
+
+        return value
+
+    @staticmethod
+    def iterate(count):
+        array = []
+
+        for n in range(count):
+            array.append(FizzBuzz.generate(n + 1))
+
+        return array</code></pre>
+</div>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">import json
 
-import requests
+from fizz_buzz import FizzBuzz
 
 
-def lambda_handler(event, context):
-    """Sample pure Lambda function
-
+def generate(event, context):
+    """FizzBuzz generate Lambda function
     Arguments:
         event LambdaEvent -- Lambda Event received from Invoke API
         context LambdaContext -- Lambda Context runtime methods and attributes
-
     Returns:
         dict -- {'statusCode': int, 'body': dict}
     """
+    try:
+        number = 0
 
-    ip = requests.get('http://checkip.amazonaws.com/')
+        if 'queryStringParameters' in event:
+            number = int(event['queryStringParameters']['number'])
 
+        body = json.dumps({
+            'value': FizzBuzz.generate(number)
+        })
+
+        print("Application execute with params:" + str(number))
+        return __create_response(200, body)
+    except Exception as err:
+        err_msg = 'Application error occurred:' + str(err.args)
+        print(err_msg)
+        body = json.dumps({
+            'message': err_msg
+        })
+        return __create_response(500, body)
+
+
+def iterate(event, context):
+    """FizzBuzz iterate Lambda function
+    Arguments:
+        event LambdaEvent -- Lambda Event received from Invoke API
+        context LambdaContext -- Lambda Context runtime methods and attributes
+    Returns:
+        dict -- {'statusCode': int, 'body': dict}
+    """
+    try:
+        params = json.loads(event['body'])
+        count = 0
+
+        if 'count' in params:
+            count = int(params['count'])
+
+        body = json.dumps({
+            'values': FizzBuzz.iterate(count)
+        })
+
+        print("Application execute with params:" + str(params))
+        return __create_response(200, body)
+    except Exception as err:
+        err_msg = 'Application error occurred:' + str(err.args)
+        print(err_msg)
+        body = json.dumps({
+            'message': err_msg
+        })
+        return __create_response(500, body)
+
+
+def __create_response(status_code, data):
     return {
-        "statusCode": 200,
-        "body": json.dumps({
-            'message': 'Hello Python lambda world',
-            'location': ip.text.replace('\n', ''),
-        }),
+        "statusCode": status_code,
+        "body": data,
         "headers": {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
         }
     }</code></pre>
 </div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">Unresolved directive in hello_world.adoc - include::../../sam-app/tests/unit/test_handler.py[]</code></pre>
 </div>
 </div>
 </div>
@@ -543,7 +794,10 @@ def lambda_handler(event, context):
 <div class="ulist">
 <ul>
 <li>
-<p>PlantUML[<a href="http://plantuml.com" class="bare">http://plantuml.com</a>]</p>
+<p>Asciidoctor[<a href="http://asciidoctor.org/" class="bare">http://asciidoctor.org/</a>]</p>
+</li>
+<li>
+<p>PlantUML[<a href="http://www.plantuml.com" class="bare">http://www.plantuml.com</a>]</p>
 </li>
 </ul>
 </div>
@@ -552,7 +806,7 @@ def lambda_handler(event, context):
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-28 17:02:51 JST
+Last updated 2018-10-13 13:00:52 JST
 </div>
 </div>
 </body>

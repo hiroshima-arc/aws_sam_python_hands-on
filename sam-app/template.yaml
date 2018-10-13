@@ -35,6 +35,32 @@ Resources:
                         Path: /hello
                         Method: get
 
+    FizzBuzzGenerateFunction:
+      Type: AWS::Serverless::Function
+      Properties:
+        CodeUri: fizz_buzz/build/
+        Handler: app.generate
+        Runtime: python3.6
+        Events:
+          HelloWorld:
+            Type: Api
+            Properties:
+              Path: /fizz_buzz/generate
+              Method: get
+
+    FizzBuzzIterateFunction:
+      Type: AWS::Serverless::Function
+      Properties:
+        CodeUri: fizz_buzz/build/
+        Handler: app.iterate
+        Runtime: python3.6
+        Events:
+          HelloWorld:
+            Type: Api
+            Properties:
+              Path: /fizz_buzz/iterate
+              Method: post
+
 Outputs:
 
     HelloWorldApi:
@@ -48,3 +74,7 @@ Outputs:
     HelloWorldFunctionIamRole:
       Description: "Implicit IAM Role created for Hello World function"
       Value: !GetAtt HelloWorldFunctionRole.Arn
+
+    FizzBuzzGenerateApi:
+      Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/fizz_buzz/generate?number=3"
