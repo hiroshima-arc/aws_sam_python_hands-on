@@ -7,7 +7,7 @@ AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオ�
 | ソフトウェア   | バージョン   | 備考        |
 |:---------------|:-------------|:------------|
 | python         |3.6.0    |             |
-| sam            |0.3.0  |             |
+| sam            |0.6.0  |             |
 | docker         |17.06.2  |             |
 | docker-compose |1.21.0  |             |
 | vagrant        |2.0.3  |             |
@@ -193,7 +193,9 @@ python -m pytest tests/ -v
 rm -rf hello_world/build
 pip install -r requirements.txt -t hello_world/build/
 cp hello_world/*.py hello_world/build/
-sam local generate-event api > event_file.json
+mkdir tests/hello_world
+sam local generate-event api > tests/hello_world/event_file.json
+sam local generate-event apigateway aws-proxy > tests/hello_world/event_file.json
 sam local invoke HelloWorldFunction --event tests/hello_world/event_file.json
 sam local start-api --host 0.0.0.0
 ```
@@ -205,6 +207,7 @@ python -m pytest tests/ -v
 rm -rf fizz_buzz/build
 pip install -r requirements.txt -t fizz_buzz/build/
 cp fizz_buzz/*.py fizz_buzz/build/
+mkdir tests/fizz_buzz
 sam local invoke FizzBuzzGenerateFunction --event tests/fizz_buzz/generate_event_file.json
 sam local invoke FizzBuzzIterateFunction --event tests/fizz_buzz/iterate_event_file.json
 sam local start-api --host 0.0.0.0
@@ -215,7 +218,7 @@ sam local start-api --host 0.0.0.0
 ```bash
 cd /vagrant/sam-app
 pip install pycodestyle
-python -m pycodestyle sam-app/fizz_buzz/*.py
+python -m pycodestyle sam-app/*/*.py
 ```
 
 ### コードカバレッジのセットアップ
