@@ -109,3 +109,5 @@ venv.bak/
 .asciidoctor
 packaged.yaml
 .vscode
+.settings
+.project
