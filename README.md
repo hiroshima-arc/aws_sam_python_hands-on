@@ -194,7 +194,6 @@ rm -rf hello_world/build
 pip install -r requirements.txt -t hello_world/build/
 cp hello_world/*.py hello_world/build/
 mkdir tests/hello_world
-sam local generate-event api > tests/hello_world/event_file.json
 sam local generate-event apigateway aws-proxy > tests/hello_world/event_file.json
 sam local invoke HelloWorldFunction --event tests/hello_world/event_file.json
 sam local start-api --host 0.0.0.0
